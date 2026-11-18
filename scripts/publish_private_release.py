@@ -27,13 +27,13 @@ def main():
     if subprocess.check_output(['git','-C',str(args.checkout),'status','--porcelain'],text=True).strip():
         raise RuntimeError('发布副本有未提交改动')
     commit=subprocess.check_output(['git','-C',str(args.checkout),'rev-parse','HEAD'],text=True).strip()
-    auth=token();http=opener();base='https://api.github.com'
+    auth=token();client=opener();base='https://api.github.com'
     def api(path,data=None,method=None):
         payload=json.dumps(data).encode() if data is not None else None
         req=urllib.request.Request(base+path,data=payload,method=method,headers={
             'Authorization':'Bearer '+auth,'Accept':'application/vnd.github+json',
             'Content-Type':'application/json','User-Agent':'REASAN-handoff'})
-        with http.open(req,timeout=120) as response:return json.load(response)
+        with client.open(req,timeout=120) as response:return json.load(response)
     if api('/user')['login']!=owner:raise RuntimeError('当前 GitHub 登录账号与目标不符')
     try:repo=api('/repos/'+repository)
     except urllib.error.HTTPError as error:
@@ -46,9 +46,9 @@ def main():
         if remote.stdout.strip()!=repo['clone_url']:raise RuntimeError('origin 与目标仓库不同')
     else:subprocess.run(['git','-C',str(args.checkout),'remote','add','origin',repo['clone_url']],check=True)
     subprocess.run(['git','-C',str(args.checkout),'push','-u','origin','main'],check=True)
-    try:release=api('/repos/'+repository+'/releases/tags/'+tag)
-    except urllib.error.HTTPError as error:
-        if error.code!=404:raise
+    releases=api('/repos/'+repository+'/releases?per_page=100')
+    release=next((item for item in releases if item['tag_name']==tag),None)
+    if release is None:
         release=api('/repos/'+repository+'/releases',{'tag_name':tag,'target_commitish':commit,
             'name':tag+' — Go2 reproduction and A2 zero-shot transfer','draft':True,
             'body':args.body_file.read_text()})
