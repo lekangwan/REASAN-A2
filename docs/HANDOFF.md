@@ -36,6 +36,8 @@ python3 scripts/check_handoff.py
 
 基镜像固定为 Isaac Sim 4.5.0 的 x86_64 摘要。Python 3.10.15、Torch 2.5.1/cu118 保持参考组合；附加依赖按参考镜像锁定。运行时使用 REASAN 子模块中的 Isaac Lab 与 RSL-RL 源码，仿真容器关闭网络。宿主环境不用安装 Python 仿真依赖。
 
+本交接已在新 Git 副本和新构建镜像中验证：74 个来源文件通过核对，MoE 接口检查通过，六条 A2 验证路线的全部轨迹和控制与参考运行逐字节相同，官方 Go2 导航也完成短运行。摘要见 [HANDOFF_VALIDATION.json](HANDOFF_VALIDATION.json)。
+
 已验证硬件为 RTX 4060 Laptop 8 GB、16 GB 内存。首次构建需下载 Isaac Sim 大镜像及附加包，时间取决于网络；首次启动也会编译缓存。已有兼容镜像可通过 `REASAN_RUNTIME_IMAGE=镜像名称` 显式选择，但自行更换版本后的结果需要重新核查。
 
 ## 4. 从短检查开始

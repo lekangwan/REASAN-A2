@@ -1,0 +1,62 @@
+{
+  "passed": true,
+  "date": "2026-11-18",
+  "portable_image_id": "sha256:fbcd2eda88e668969cdbe8bc1683edeb26fd47cefc9c28487ffe56daea98b7be",
+  "clean_checkout_restored_from_release": true,
+  "nvidia_assets_downloaded_and_verified": 7,
+  "source_files_checked": 74,
+  "policy": {
+    "passed": true,
+    "scope": "a2_moe_policy_and_pd_interface",
+    "source_files_verified": 46,
+    "checkpoint_iter": 103501,
+    "checkpoint_infos": null,
+    "strict_state_dict_keys": 37,
+    "original_to_exported_max_action_error": 0.0,
+    "compared_batches": 32,
+    "native_observation_max_error": 0.0,
+    "adapter_action_max_error": 0.0,
+    "policy_to_lab_joint_indices": [
+      0,
+      4,
+      8,
+      1,
+      5,
+      9,
+      2,
+      6,
+      10,
+      3,
+      7,
+      11
+    ],
+    "physics_steps": 400,
+    "inference_calls_per_env": [
+      100,
+      100
+    ],
+    "selective_reset_preserves_other_environment": true,
+    "policy_sha256": "fe27840e6b4109880c3d1c5c974d0dfb234a64ff82f08642fb9523e2b0440584"
+  },
+  "a2_navigation": {
+    "complete": true,
+    "episodes": 6,
+    "success": 5,
+    "timeout": 1,
+    "control_period_checks": 4496,
+    "selective_reset_checks": 6,
+    "episodes_trajectory_and_control_exactly_equal_reference": true,
+    "runtime_and_models_equal_reference": true
+  },
+  "go2_navigation": {
+    "completed": true,
+    "seconds": 2,
+    "steps": 100,
+    "finite": true,
+    "terminated": 0,
+    "truncated": 0
+  },
+  "dockerfile_sha256": "3b29f2bc4ae4d66204d080a20ba24e0aab394a57841b9ccc20117de6a7d6f677",
+  "dependency_lock_sha256": "abcf7938dec3644f313265b1b3b7cefc7ebf23ed44538c167f6d552397404c4c",
+  "raw_check_directory": "results/debug/20261118_131605_handoff_check"
+}

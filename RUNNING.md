@@ -1,6 +1,6 @@
-# 本机运行说明
+# 运行说明与历史入口
 
-当前先验证官方 Go2 预训练模型，安全与导航使用仿真射线。训练、雷达估计器和 A2 / MoE 迁移后置，进度见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)。
+首次在另一台机器使用，请先读 [README.md](README.md) 和 [交接说明](docs/HANDOFF.md)，恢复附件并构建可移植镜像。下文保留本机各阶段入口及历史结果；Go2 与 A2 MoE 均已完成静态流程，当前 A2 属于零样本迁移，训练和雷达估计器仍后置。最新状态见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)。
 
 ## 环境与来源
 
