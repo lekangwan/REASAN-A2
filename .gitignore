@@ -1,0 +1,11 @@
+.cache/
+__pycache__/
+/results/
+/release/
+/release-downloads/
+/assets/a2/*.pt
+/assets/a2/usd_v1/
+/assets/a2/native_reference/
+/assets/evaluation/public_static_v1/*.npz
+/assets/isaac45/Isaac/
+*.pyc

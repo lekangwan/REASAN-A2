@@ -1,0 +1,149 @@
+--- official:__init__
++++ A2:__init__
+@@ -1,6 +1,6 @@
+     def __init__(self, cfg: Go2NavEnvCfg, render_mode: str | None = None, **kwargs):
+         print("Initializing training environment...")
+-        super().__init__(cfg, render_mode, **kwargs)
++        DirectRLEnv.__init__(self, cfg, render_mode, **kwargs)
+ 
+         if self.cfg.use_dynamic_obstacle:
+             print("Using dynamic obstacles in the environment.")
+@@ -11,27 +11,9 @@
+         print(f"number of dynamic obstacles: {self._num_obstacles}")
+         self._wait_for_key()
+ 
+-        loco_policy_path = "./logs/rsl_rl/go2_lidar/loco_1/exported/policy.pt"
+-        print(f"Loading locomotion policy from: {loco_policy_path}")
+-        self._loco_policy = torch.jit.load(loco_policy_path)
+-        self._loco_policy.to(self.device).eval()
+-        hidden_state_shape = self._loco_policy.hidden_state.shape
+-        cell_state_shape = self._loco_policy.cell_state.shape
+-        self._loco_policy.hidden_state = torch.zeros(
+-            hidden_state_shape[0],
+-            self.num_envs,
+-            hidden_state_shape[2],
+-            device=self.device,
+-        )
+-        self._loco_policy.cell_state = torch.zeros(
+-            cell_state_shape[0],
+-            self.num_envs,
+-            cell_state_shape[2],
+-            device=self.device,
+-        )
+-        for param in self._loco_policy.parameters():
+-            param.requires_grad = False
+-        self._wait_for_key()
++        # 冻结 A2 学生策略，替换 Go2 的步态模型与状态。
++        self._a2_loco = A2LowLevel(self._robot)
++        self._a2_motor_strength = (torch.rand_like(self._robot.data.joint_pos) * 0.2 + 0.9)[:, self._a2_loco.joints]
+ 
+         filter_policy_path = "./logs/rsl_rl/go2_lidar/filter_1/exported/policy.pt"
+         print(f"Loading filter policy from: {filter_policy_path}")
+@@ -78,9 +60,12 @@
+         self._init_physx_material_buffer()
+         self._reset_physx_materials(torch.ones(self.num_envs, device="cpu", dtype=torch.bool))
+ 
+-        for _, v in self._robot.actuators.items():
+-            v.stiffness[:] = (torch.rand_like(v.stiffness) * 0.2 + 0.9) * 35.0
+-            v.damping[:] = (torch.rand_like(v.damping) * 0.2 + 0.9) * 0.5
++        # 保留原增益/电机强度的 ±10% 采样分布，名义增益改用 A2 自身值。
++        # 强度乘入 Kp/Kd，等价于对 PD 力矩乘强度后再限幅。
++        self._a2_kp_factor = (torch.rand_like(self._robot.data.joint_pos) * 0.2 + 0.9)[:, self._a2_loco.joints]
++        self._a2_kd_factor = (torch.rand_like(self._robot.data.joint_pos) * 0.2 + 0.9)[:, self._a2_loco.joints]
++        self._a2_loco.kp = self._a2_loco.kp[None, :] * self._a2_kp_factor * self._a2_motor_strength
++        self._a2_loco.kd = self._a2_loco.kd[None, :] * self._a2_kd_factor * self._a2_motor_strength
+ 
+         self._first_reset = True
+ 
+@@ -103,15 +88,14 @@
+ 
+         self._init_data_extra_buf()
+ 
+-        self._base_id_cs, _ = self._contact_sensor.find_bodies("base")
++        self._base_id_cs, _ = self._contact_sensor.find_bodies("base_link")
+         self._feet_ids_cs, _ = self._contact_sensor.find_bodies(".*foot")
+         self._undesired_contact_body_ids_cs, _ = self._contact_sensor.find_bodies(
+             [
+                 ".*thigh",
+                 ".*calf",
+-                "base",
++                "base_link",
+                 ".*hip",
+-                "Head.*",
+             ]
+         )
+         self._feet_ids_bd, _ = self._robot.find_bodies(".*foot")
+--- official:_randomize_mass
++++ A2:_randomize_mass
+@@ -3,7 +3,7 @@
+ 
+         env_ids = torch.arange(self.num_envs, device="cpu")
+ 
+-        body_ids, _ = self._robot.find_bodies("base")
++        body_ids, _ = self._robot.find_bodies("base_link")
+         body_ids = torch.tensor(body_ids, dtype=torch.int, device="cpu")
+         assert body_ids.shape == (1,), "Mass randomization is only supported for the base body."
+ 
+--- official:_pre_physics_step
++++ A2:_pre_physics_step
+@@ -35,22 +35,12 @@
+             ],
+             dim=-1,
+         )
++        self._a2_filter_input = filter_proprio_obs.clone()
+         self._filter_actions = self._filter_policy(filter_proprio_obs, self._obs_actor_rays)
+ 
+         self._prev_loco_actions.append(self._loco_actions.clone())
+         self._prev_loco_actions.pop(0)
+-        loco_cmd_scale = torch.tensor([[2.0, 2.0, 0.25]], device=self.device)
+-        loco_obs = torch.cat(
+-            [
+-                self._robot.data.root_com_ang_vel_b * 0.25,  # 3
+-                self._robot.data.projected_gravity_b,  # 3
+-                self._filter_actions.clamp(min=-self._vel_cmd_limits, max=self._vel_cmd_limits) * loco_cmd_scale,  # 3
+-                self._robot.data.joint_pos - self._robot.data.default_joint_pos,  # 12
+-                self._robot.data.joint_vel * 0.05,  # 12
+-                self._loco_actions,  # 12
+-            ],
+-            dim=-1,
+-        )
+-        self._loco_actions = self._loco_policy(loco_obs)
++        self._a2_loco.commands[:] = self._filter_actions.clamp(min=-self._vel_cmd_limits, max=self._vel_cmd_limits)
++        self._a2_observation = self._a2_loco.observation().clone()
+ 
+         self._update_dynamic_obstacles()
+--- official:_apply_action
++++ A2:_apply_action
+@@ -1,6 +1,6 @@
+     def _apply_action(self):
+-        actions = self._loco_actions * 0.8 + self._prev_loco_actions[-1] * 0.2
+-        action_scaled = actions * self.cfg.action_scale_loco
+-        action_scaled[:, self._hip_ids_jt] *= 0.5
+-        joint_pos_target = action_scaled + self._robot.data.default_joint_pos
+-        self._robot.set_joint_position_target(joint_pos_target)
++        effort = self._a2_loco.apply()
++        self._a2_last_effort = effort.clone()
++        self._loco_actions[:, self._a2_loco.joints] = self._a2_loco.previous_action
++        if not torch.isfinite(self._a2_observation).all() or not torch.isfinite(effort).all():
++            raise RuntimeError("A2 观测或 PD 力矩出现非有限数值")
+--- official:_reset_idx
++++ A2:_reset_idx
+@@ -12,7 +12,7 @@
+         self._update_curriculum(env_ids)
+ 
+         self._robot.reset(env_ids)
+-        super()._reset_idx(env_ids)
++        DirectRLEnv._reset_idx(self, env_ids)
+ 
+         self._high_actions[env_ids] = 0.0
+         self._filter_actions[env_ids] = 0.0
+@@ -41,8 +41,7 @@
+         joint_pos = default_joint_pos.clamp_(joint_pos_limits[..., 0], joint_pos_limits[..., 1])
+         self._robot.write_joint_state_to_sim(joint_pos, self._robot.data.default_joint_vel[env_ids], env_ids=env_ids)
+ 
+-        self._loco_policy.hidden_state[:, env_mask, :] = 0.0
+-        self._loco_policy.cell_state[:, env_mask, :] = 0.0
++        self._a2_loco.reset(env_ids)
+         self._filter_policy.h_state[:, env_mask, :] = 0.0
+         self._filter_policy.c_state[:, env_mask, :] = 0.0
+ 

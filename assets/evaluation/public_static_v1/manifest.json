@@ -1,0 +1,918 @@
+{
+  "source_commit": "655bf4f1cc23e835d87bf9a887972af6760af162",
+  "source_class": "go2_lidar.terrain.test_terrain_generator.TestTerrainGenerator",
+  "initial_numpy_seed": 0,
+  "recorded_numpy_reseeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61,
+    62,
+    63,
+    64,
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    958085,
+    315976,
+    850618,
+    182139,
+    579794,
+    283127
+  ],
+  "terrain_sha256": "99955847aa2958993c4f27b29c61b082f650c8a9e6afeb11788ab4b2ef49c252",
+  "vertices": 1761896,
+  "triangles": 3406684,
+  "grid": [
+    10,
+    8
+  ],
+  "cell_size_m": [
+    20,
+    10
+  ],
+  "cases": [
+    {
+      "case_id": "sparse_00",
+      "family": "sparse",
+      "variant": 0,
+      "column": 3,
+      "split": "validation",
+      "start": [
+        -95.5,
+        -5.0
+      ],
+      "goal": [
+        -84.5,
+        -5.0
+      ],
+      "center": [
+        -90.0,
+        -5.0
+      ],
+      "bounds": [
+        -100.0,
+        -80.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_01",
+      "family": "sparse",
+      "variant": 1,
+      "column": 3,
+      "split": "validation",
+      "start": [
+        -75.5,
+        -5.0
+      ],
+      "goal": [
+        -64.5,
+        -5.0
+      ],
+      "center": [
+        -70.0,
+        -5.0
+      ],
+      "bounds": [
+        -80.0,
+        -60.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_02",
+      "family": "sparse",
+      "variant": 2,
+      "column": 3,
+      "split": "test",
+      "start": [
+        -55.5,
+        -5.0
+      ],
+      "goal": [
+        -44.5,
+        -5.0
+      ],
+      "center": [
+        -50.0,
+        -5.0
+      ],
+      "bounds": [
+        -60.0,
+        -40.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_03",
+      "family": "sparse",
+      "variant": 3,
+      "column": 3,
+      "split": "test",
+      "start": [
+        -35.5,
+        -5.0
+      ],
+      "goal": [
+        -24.5,
+        -5.0
+      ],
+      "center": [
+        -30.0,
+        -5.0
+      ],
+      "bounds": [
+        -40.0,
+        -20.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_04",
+      "family": "sparse",
+      "variant": 4,
+      "column": 3,
+      "split": "test",
+      "start": [
+        -15.5,
+        -5.0
+      ],
+      "goal": [
+        -4.5,
+        -5.0
+      ],
+      "center": [
+        -10.0,
+        -5.0
+      ],
+      "bounds": [
+        -20.0,
+        0.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_05",
+      "family": "sparse",
+      "variant": 5,
+      "column": 3,
+      "split": "test",
+      "start": [
+        4.5,
+        -5.0
+      ],
+      "goal": [
+        15.5,
+        -5.0
+      ],
+      "center": [
+        10.0,
+        -5.0
+      ],
+      "bounds": [
+        0.0,
+        20.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_06",
+      "family": "sparse",
+      "variant": 6,
+      "column": 3,
+      "split": "test",
+      "start": [
+        24.5,
+        -5.0
+      ],
+      "goal": [
+        35.5,
+        -5.0
+      ],
+      "center": [
+        30.0,
+        -5.0
+      ],
+      "bounds": [
+        20.0,
+        40.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_07",
+      "family": "sparse",
+      "variant": 7,
+      "column": 3,
+      "split": "test",
+      "start": [
+        44.5,
+        -5.0
+      ],
+      "goal": [
+        55.5,
+        -5.0
+      ],
+      "center": [
+        50.0,
+        -5.0
+      ],
+      "bounds": [
+        40.0,
+        60.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_08",
+      "family": "sparse",
+      "variant": 8,
+      "column": 3,
+      "split": "test",
+      "start": [
+        64.5,
+        -5.0
+      ],
+      "goal": [
+        75.5,
+        -5.0
+      ],
+      "center": [
+        70.0,
+        -5.0
+      ],
+      "bounds": [
+        60.0,
+        80.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "sparse_09",
+      "family": "sparse",
+      "variant": 9,
+      "column": 3,
+      "split": "test",
+      "start": [
+        84.5,
+        -5.0
+      ],
+      "goal": [
+        95.5,
+        -5.0
+      ],
+      "center": [
+        90.0,
+        -5.0
+      ],
+      "bounds": [
+        80.0,
+        100.0,
+        -10.0,
+        0.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_00",
+      "family": "dense",
+      "variant": 0,
+      "column": 4,
+      "split": "validation",
+      "start": [
+        -95.5,
+        5.0
+      ],
+      "goal": [
+        -84.5,
+        5.0
+      ],
+      "center": [
+        -90.0,
+        5.0
+      ],
+      "bounds": [
+        -100.0,
+        -80.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_01",
+      "family": "dense",
+      "variant": 1,
+      "column": 4,
+      "split": "validation",
+      "start": [
+        -75.5,
+        5.0
+      ],
+      "goal": [
+        -64.5,
+        5.0
+      ],
+      "center": [
+        -70.0,
+        5.0
+      ],
+      "bounds": [
+        -80.0,
+        -60.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_02",
+      "family": "dense",
+      "variant": 2,
+      "column": 4,
+      "split": "test",
+      "start": [
+        -55.5,
+        5.0
+      ],
+      "goal": [
+        -44.5,
+        5.0
+      ],
+      "center": [
+        -50.0,
+        5.0
+      ],
+      "bounds": [
+        -60.0,
+        -40.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_03",
+      "family": "dense",
+      "variant": 3,
+      "column": 4,
+      "split": "test",
+      "start": [
+        -35.5,
+        5.0
+      ],
+      "goal": [
+        -24.5,
+        5.0
+      ],
+      "center": [
+        -30.0,
+        5.0
+      ],
+      "bounds": [
+        -40.0,
+        -20.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_04",
+      "family": "dense",
+      "variant": 4,
+      "column": 4,
+      "split": "test",
+      "start": [
+        -15.5,
+        5.0
+      ],
+      "goal": [
+        -4.5,
+        5.0
+      ],
+      "center": [
+        -10.0,
+        5.0
+      ],
+      "bounds": [
+        -20.0,
+        0.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_05",
+      "family": "dense",
+      "variant": 5,
+      "column": 4,
+      "split": "test",
+      "start": [
+        4.5,
+        5.0
+      ],
+      "goal": [
+        15.5,
+        5.0
+      ],
+      "center": [
+        10.0,
+        5.0
+      ],
+      "bounds": [
+        0.0,
+        20.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_06",
+      "family": "dense",
+      "variant": 6,
+      "column": 4,
+      "split": "test",
+      "start": [
+        24.5,
+        5.0
+      ],
+      "goal": [
+        35.5,
+        5.0
+      ],
+      "center": [
+        30.0,
+        5.0
+      ],
+      "bounds": [
+        20.0,
+        40.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_07",
+      "family": "dense",
+      "variant": 7,
+      "column": 4,
+      "split": "test",
+      "start": [
+        44.5,
+        5.0
+      ],
+      "goal": [
+        55.5,
+        5.0
+      ],
+      "center": [
+        50.0,
+        5.0
+      ],
+      "bounds": [
+        40.0,
+        60.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_08",
+      "family": "dense",
+      "variant": 8,
+      "column": 4,
+      "split": "test",
+      "start": [
+        64.5,
+        5.0
+      ],
+      "goal": [
+        75.5,
+        5.0
+      ],
+      "center": [
+        70.0,
+        5.0
+      ],
+      "bounds": [
+        60.0,
+        80.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "dense_09",
+      "family": "dense",
+      "variant": 9,
+      "column": 4,
+      "split": "test",
+      "start": [
+        84.5,
+        5.0
+      ],
+      "goal": [
+        95.5,
+        5.0
+      ],
+      "center": [
+        90.0,
+        5.0
+      ],
+      "bounds": [
+        80.0,
+        100.0,
+        0.0,
+        10.0
+      ],
+      "deadline_s": 15.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_00",
+      "family": "maze",
+      "variant": 0,
+      "column": 5,
+      "split": "validation",
+      "start": [
+        -99.0,
+        15.0
+      ],
+      "goal": [
+        -81.0,
+        15.0
+      ],
+      "center": [
+        -90.0,
+        15.0
+      ],
+      "bounds": [
+        -100.0,
+        -80.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_01",
+      "family": "maze",
+      "variant": 1,
+      "column": 5,
+      "split": "validation",
+      "start": [
+        -79.0,
+        15.0
+      ],
+      "goal": [
+        -61.0,
+        15.0
+      ],
+      "center": [
+        -70.0,
+        15.0
+      ],
+      "bounds": [
+        -80.0,
+        -60.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_02",
+      "family": "maze",
+      "variant": 2,
+      "column": 5,
+      "split": "test",
+      "start": [
+        -59.0,
+        15.0
+      ],
+      "goal": [
+        -41.0,
+        15.0
+      ],
+      "center": [
+        -50.0,
+        15.0
+      ],
+      "bounds": [
+        -60.0,
+        -40.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_03",
+      "family": "maze",
+      "variant": 3,
+      "column": 5,
+      "split": "test",
+      "start": [
+        -39.0,
+        15.0
+      ],
+      "goal": [
+        -21.0,
+        15.0
+      ],
+      "center": [
+        -30.0,
+        15.0
+      ],
+      "bounds": [
+        -40.0,
+        -20.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_04",
+      "family": "maze",
+      "variant": 4,
+      "column": 5,
+      "split": "test",
+      "start": [
+        -19.0,
+        15.0
+      ],
+      "goal": [
+        -1.0,
+        15.0
+      ],
+      "center": [
+        -10.0,
+        15.0
+      ],
+      "bounds": [
+        -20.0,
+        0.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_05",
+      "family": "maze",
+      "variant": 5,
+      "column": 5,
+      "split": "test",
+      "start": [
+        1.0,
+        15.0
+      ],
+      "goal": [
+        19.0,
+        15.0
+      ],
+      "center": [
+        10.0,
+        15.0
+      ],
+      "bounds": [
+        0.0,
+        20.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_06",
+      "family": "maze",
+      "variant": 6,
+      "column": 5,
+      "split": "test",
+      "start": [
+        21.0,
+        15.0
+      ],
+      "goal": [
+        39.0,
+        15.0
+      ],
+      "center": [
+        30.0,
+        15.0
+      ],
+      "bounds": [
+        20.0,
+        40.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_07",
+      "family": "maze",
+      "variant": 7,
+      "column": 5,
+      "split": "test",
+      "start": [
+        41.0,
+        15.0
+      ],
+      "goal": [
+        59.0,
+        15.0
+      ],
+      "center": [
+        50.0,
+        15.0
+      ],
+      "bounds": [
+        40.0,
+        60.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_08",
+      "family": "maze",
+      "variant": 8,
+      "column": 5,
+      "split": "test",
+      "start": [
+        61.0,
+        15.0
+      ],
+      "goal": [
+        79.0,
+        15.0
+      ],
+      "center": [
+        70.0,
+        15.0
+      ],
+      "bounds": [
+        60.0,
+        80.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    },
+    {
+      "case_id": "maze_09",
+      "family": "maze",
+      "variant": 9,
+      "column": 5,
+      "split": "test",
+      "start": [
+        81.0,
+        15.0
+      ],
+      "goal": [
+        99.0,
+        15.0
+      ],
+      "center": [
+        90.0,
+        15.0
+      ],
+      "bounds": [
+        80.0,
+        100.0,
+        10.0,
+        20.0
+      ],
+      "deadline_s": 30.0,
+      "dynamic_obstacles": 0
+    }
+  ],
+  "numpy_version": "1.26.0",
+  "wall_seconds": 16.574301130021922
+}

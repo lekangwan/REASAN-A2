@@ -1,0 +1,22 @@
+{
+  "version": "a2_geometry_clearance_v1",
+  "created_date": "2026-11-18",
+  "minimum_geometric_gap_m": 0.031,
+  "raise_height_only": true,
+  "minimum_root_height_m": 0.4,
+  "training_or_policy_changes": false,
+  "files_sha256": {
+    "a2_adapter/spawn_geometry.py": "8a6b6fa3f40ec985fea88640698bc498f35735265f40c3a4223214c9f2cbef3c",
+    "a2_adapter/valid_spawn_env.py": "5fb9c34ae64acde62eefe858df5594b1a39a33dc468c18ebf972c03d50b0877e",
+    "a2_adapter/nav_env.py": "91d7a8cdfc0a0adc570889a40acd1b113215eb4b1bc5c77c286c57f4f1e74377",
+    "a2_adapter/low_level.py": "a97440fd01385544a297f43ed333f1a3a44fd3864d4a5419ea5b5fe0c360d3b0",
+    "a2_adapter/robot.py": "3ce65674fb9b9aeb7e62f7c027997eaeb3f932ded0936bb967d060ee76f0a181",
+    "scripts/evaluate_a2_valid_spawn.py": "0c19d50dcf24baff6950d7dc8e118a7ba34d43ae23dc677cee085ee48f87d372",
+    "scripts/static_eval_env.py": "757df35c2834b9a9c4845428243d958f60a6a9cca5bbd7119b2064be4d332d94",
+    "scripts/run_a2_valid_spawn_evaluation.sh": "80a1aa827178f34c74ed56ef92b8602953248f263df1b0554a5661abb7897c6a",
+    "scripts/extract_a2_spawn_colliders.py": "ffc004b8a9ffbe2a8e4ef03fcd4701db6bf5a271a9474e2e2d5d1f00a3a2e121",
+    "assets/a2/spawn_geometry_v1/colliders.json": "131416b50924fe836b3a3d1fd905ac5fc9d2518cc2eb8830d34ad59fed93787a",
+    "assets/evaluation/public_static_v1/terrain.npz": "99955847aa2958993c4f27b29c61b082f650c8a9e6afeb11788ab4b2ef49c252"
+  },
+  "verification_report": "results/debug/20261118_101030_a2_spawn_fix/REPORT.md"
+}

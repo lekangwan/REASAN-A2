@@ -1,0 +1,22 @@
+{
+  "source_commit": "d3d8929ae615504eb9edf454714505c3c01dbcba",
+  "checkpoint_sha256": "9a98811b6cec7599155425c37193652041067ace728dc4f5c757d55ba9447a5c",
+  "student_sha256": "fe27840e6b4109880c3d1c5c974d0dfb234a64ff82f08642fb9523e2b0440584",
+  "observation_dim": 45,
+  "history_shape_per_env": [
+    5,
+    45
+  ],
+  "action_dim": 12,
+  "inference_period_seconds": 0.02,
+  "original_inference_max_absolute_error": 0.0,
+  "compared_batches": 32,
+  "batch_size": 8,
+  "selective_reset_batches": [
+    5,
+    16,
+    24
+  ],
+  "learned_modules": "original StudentMoEEncoder and actor unchanged",
+  "wrapper_difference": "explicit history input/output instead of internal buffer"
+}

@@ -1,0 +1,240 @@
+{
+  "copied_date": "2026-11-17",
+  "scope": "A2 assets and frozen MoE student only; no navigation replacement yet",
+  "a2_repository": "https://github.com/kilsnakes-star/a2_rl_gym",
+  "a2_source_commit": "d3d8929ae615504eb9edf454714505c3c01dbcba",
+  "navrl_snapshot_commit": "263a0c1f1969afd043f77dbf257cbdae599a50df",
+  "checkpoint_training_configuration": "not contained in checkpoint; existing pinned source is a candidate, with native and Lab walking checks available",
+  "files": {
+    "assets/a2/ROBOT_CONTRACT.json": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/ROBOT_CONTRACT.json",
+      "sha256": "762ec82ac93bc956c69861feb56d843733addc2dd0b1328df75fa505849096be",
+      "size_bytes": 4665
+    },
+    "assets/a2/ACTIVE_ASSET.json": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/ACTIVE_ASSET.json",
+      "sha256": "ecdf2c4284cf991a32be792a93efd4796673f5ce0fc60c1887fe18a2b21bde70",
+      "size_bytes": 92
+    },
+    "assets/a2/STUDENT_POLICY.json": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/STUDENT_POLICY.json",
+      "sha256": "ad5c8997a5dbfaa9a6ccce457c22f5ffe36c2f310d02b3d65bc447f29714f998",
+      "size_bytes": 680
+    },
+    "assets/a2/USD_SOURCE_v1.json": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/USD_SOURCE_v1.json",
+      "sha256": "11d39f61213f0fd33f258a738191dba94cdd2c15986ef408de6777f189f50484",
+      "size_bytes": 1435
+    },
+    "assets/a2/student_model_103500.pt": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/student_model_103500.pt",
+      "sha256": "fe27840e6b4109880c3d1c5c974d0dfb234a64ff82f08642fb9523e2b0440584",
+      "size_bytes": 5209850
+    },
+    "assets/a2/model_103500.pt": {
+      "source": "/home/lekangwan/projects/NavRL/model_103500.pt",
+      "sha256": "9a98811b6cec7599155425c37193652041067ace728dc4f5c757d55ba9447a5c",
+      "size_bytes": 22661895
+    },
+    "assets/a2/usd_v1/a2.usd": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/usd_v1/a2.usd",
+      "sha256": "1ad5306083129a6604be362d13c590756304490de93d4c5616fd118d72c9e5a7",
+      "size_bytes": 2128
+    },
+    "assets/a2/usd_v1/.asset_hash": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/usd_v1/.asset_hash",
+      "sha256": "641927964711426f117abb8a330feae436bf2c302f84ce66fb75bfe1e4b5cbec",
+      "size_bytes": 32
+    },
+    "assets/a2/usd_v1/a2_import.urdf": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/usd_v1/a2_import.urdf",
+      "sha256": "22e9462f26b0378806b6fd766fbc958ee359fabb2af584feb4ed395ddf35d8c3",
+      "size_bytes": 20704
+    },
+    "assets/a2/usd_v1/a2_import.json": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/usd_v1/a2_import.json",
+      "sha256": "262e7fe104ea52930721e3424d5613b78d24c182ac05c9ce26f9a85e6e3d2c14",
+      "size_bytes": 3812
+    },
+    "assets/a2/usd_v1/config.yaml": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/usd_v1/config.yaml",
+      "sha256": "49da1ae1f686910974ecf96d9db45c32de03716b9e0f63c87892f8937ffaa0fc",
+      "size_bytes": 556
+    },
+    "assets/a2/usd_v1/configuration/a2_physics.usd": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/usd_v1/configuration/a2_physics.usd",
+      "sha256": "ba407e2ee3d17527f3e522f7a7bc5b5de2b5e7a71e4a5061641d544e52522e47",
+      "size_bytes": 5491
+    },
+    "assets/a2/usd_v1/configuration/a2_sensor.usd": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/usd_v1/configuration/a2_sensor.usd",
+      "sha256": "6370f31f10593536c3d4c01a7720004e30263f411df20da0b783f958dc535a9f",
+      "size_bytes": 642
+    },
+    "assets/a2/usd_v1/configuration/a2_base.usd": {
+      "source": "/home/lekangwan/projects/NavRL/assets/a2/usd_v1/configuration/a2_base.usd",
+      "sha256": "25c254340b897e6ceed1b6d25c1c6197f031e2ecea8132cead7f4bfd4e105d0f",
+      "size_bytes": 21227475
+    },
+    "upstream/a2_reference/rsl_rl/rsl_rl/modules/actor_critic_moe_cts.py": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/rsl_rl/rsl_rl/modules/actor_critic_moe_cts.py",
+      "sha256": "ff3689a3cfdaf80246e7be76b9c5eae54054112f2d4b5750798980a8033e7d58",
+      "size_bytes": 5139
+    },
+    "upstream/a2_reference/rsl_rl/rsl_rl/modules/utils.py": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/rsl_rl/rsl_rl/modules/utils.py",
+      "sha256": "8afc528629cea5f4ff2d22561bb7d56cac2345fa54243d3d9126a5e880e7b863",
+      "size_bytes": 4443
+    },
+    "upstream/a2_reference/legged_gym/envs/a2/a2_config.py": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/legged_gym/envs/a2/a2_config.py",
+      "sha256": "7b0ebc4413e17a35a5bf18ba4d2031febda5e41e9f030bc025121b2daac8af80",
+      "size_bytes": 11667
+    },
+    "upstream/a2_reference/legged_gym/envs/a2/a2_env.py": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/legged_gym/envs/a2/a2_env.py",
+      "sha256": "9337dc8750d72bc8c39912c759b68ae2c8719cbf1d9dca5fbc687d8fb1dff8a2",
+      "size_bytes": 18918
+    },
+    "upstream/a2_reference/legged_gym/envs/base/legged_robot.py": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/legged_gym/envs/base/legged_robot.py",
+      "sha256": "31c4c81c810489db8bc9bb0d4cabcf7f33fb4678a84a56fad5b682dcce612a47",
+      "size_bytes": 79325
+    },
+    "upstream/a2_reference/legged_gym/envs/base/legged_robot_config.py": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/legged_gym/envs/base/legged_robot_config.py",
+      "sha256": "725b231d8d56f79faaec0e49200c4cf5c224be746049e053067b7f907c410a81",
+      "size_bytes": 17573
+    },
+    "upstream/a2_reference/README.md": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/README.md",
+      "sha256": "5a811090c7f0237a14dbe83fd1223c347cf8bee041029ec0edb7178474ba1bfc",
+      "size_bytes": 2474
+    },
+    "upstream/a2_reference/LICENSE": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/LICENSE",
+      "sha256": "7e4c757f79c318aadd9ce07209811779779f635ffe3a286181748cc63e1bac36",
+      "size_bytes": 2783
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/right_hind_Link2.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/right_hind_Link2.STL",
+      "sha256": "21a3bbfa7edb7116d34be42fed84d0bfbf4ef95f000c5a8c243398046d891889",
+      "size_bytes": 547484
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/right_front_Link1.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/right_front_Link1.STL",
+      "sha256": "722ad81adc6501a41469fd1c4d9a99d935b15662b631a206fe5b748a0d6eee52",
+      "size_bytes": 249684
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/left_front_Link3.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/left_front_Link3.STL",
+      "sha256": "26a39dfaf784d9fe16019690e0d4e766232a2117453b7884cab3f3d81ec3ff5b",
+      "size_bytes": 310484
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/left_hind_Link2.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/left_hind_Link2.STL",
+      "sha256": "d62c468ae60f5f17daa39d8ed104bdd7b6b0cec460dfe5712db2a041f14e1a3f",
+      "size_bytes": 548484
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/right_hind_Link1.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/right_hind_Link1.STL",
+      "sha256": "cc9c733858fcd8dc0347329e3187c060b20ab5f7b34ddc61cf16c5d1b1d842a1",
+      "size_bytes": 249684
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/right_front_Link4.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/right_front_Link4.STL",
+      "sha256": "27871fb73330654fdafa682b5c7d0722f59462e4696ed05b870c072a31eba75d",
+      "size_bytes": 1719884
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/left_hind_Link1.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/left_hind_Link1.STL",
+      "sha256": "d4b121e9382c7735ab60d32dda444ca48f278cea74b21ec94ac54a8032c75ce0",
+      "size_bytes": 249684
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/left_hind_Link4.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/left_hind_Link4.STL",
+      "sha256": "bb913b7637a5e3d252efa7e71e4af3be63658f699a2401b29f2a059bc0ae6326",
+      "size_bytes": 1719884
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/left_front_Link1.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/left_front_Link1.STL",
+      "sha256": "386cc25336de29f5d397424dc807abdc3551935dfe006ee66f5c2d44cee95155",
+      "size_bytes": 249684
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/left_front_Link2.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/left_front_Link2.STL",
+      "sha256": "2106e36d6cb839b944707793d7be01c4a37181333797aa60fc00a4e45dc3a148",
+      "size_bytes": 548484
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/left_front_Link4.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/left_front_Link4.STL",
+      "sha256": "033aae39b32d50eaf1c034a887dbd61b90b9aade3d9e76d817d8832152737570",
+      "size_bytes": 1719884
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/right_hind_Link4.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/right_hind_Link4.STL",
+      "sha256": "dee1269d94e2ae521058b842ba33f48eaec435317515c7b169076386ca5756d9",
+      "size_bytes": 1719884
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/right_front_Link2.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/right_front_Link2.STL",
+      "sha256": "ea81193979699f476db044cc3e51921100b423de60fde28f74e99c0b94408616",
+      "size_bytes": 547484
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/right_front_Link3.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/right_front_Link3.STL",
+      "sha256": "5fc735e0a33aed6e3d68d73323d58450eb4179a17be460afcf28969ecfb70fbe",
+      "size_bytes": 310484
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/right_hind_Link3.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/right_hind_Link3.STL",
+      "sha256": "618152ab154f41c1b6ac9a056c800fa52e6861d7f74c180cf3e4bc3b65415ebf",
+      "size_bytes": 310484
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/left_hind_Link3.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/left_hind_Link3.STL",
+      "sha256": "bf0ce4ee36d62f2301796ed390252b65d0b637502e79dae2446132201ef62e23",
+      "size_bytes": 310484
+    },
+    "upstream/a2_reference/resources/robots/a2/meshes/base_link.STL": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/meshes/base_link.STL",
+      "sha256": "8d63bf204cc935a7df7415d31bfb953f3ded653899b6b27bbf0268fc363e5904",
+      "size_bytes": 3421184
+    },
+    "upstream/a2_reference/resources/robots/a2/urdf/a2.urdf": {
+      "source": "/home/lekangwan/projects/NavRL/upstream/a2_rl_gym/resources/robots/a2/urdf/a2.urdf",
+      "sha256": "041d2ba0fd79eef7f8b83fc477cf2f8bb57e3a2b3f82ea4fd0d49e4db38b724f",
+      "size_bytes": 24791
+    },
+    "upstream/a2_reference/navrl_adapter_reference/a2_migration/export_student.py": {
+      "source": "/home/lekangwan/projects/NavRL/a2_migration/export_student.py",
+      "sha256": "36f6e723a3d2bbcaf445dbd80328b51028506672892d971b061c0372525d35b2",
+      "size_bytes": 3416
+    },
+    "upstream/a2_reference/navrl_adapter_reference/a2_migration/lab_robot.py": {
+      "source": "/home/lekangwan/projects/NavRL/a2_migration/lab_robot.py",
+      "sha256": "3ce65674fb9b9aeb7e62f7c027997eaeb3f932ded0936bb967d060ee76f0a181",
+      "size_bytes": 1921
+    },
+    "upstream/a2_reference/navrl_adapter_reference/training_a2/low_level.py": {
+      "source": "/home/lekangwan/projects/NavRL/training_a2/low_level.py",
+      "sha256": "4968dce43f436ac1a2ee965c92ae3034c5dd29e5b412bc125cb204982ad91087",
+      "size_bytes": 4028
+    },
+    "assets/a2/native_reference/trace.npz": {
+      "source": "/home/lekangwan/projects/NavRL/results/a2_native_reference_20261116/trace.npz",
+      "sha256": "bb1488043fe9beb334046dc93e1f10b487b0eae4a8b34826b182ff109d8b2497",
+      "size_bytes": 1453710
+    },
+    "assets/a2/native_reference/initial_state.json": {
+      "source": "/home/lekangwan/projects/NavRL/results/a2_native_reference_20261116/initial_state.json",
+      "sha256": "2d94afc95e8817f06bf3c20170a949a9aeb4a6c5f694fb51850c67eebc89e8f2",
+      "size_bytes": 6413
+    },
+    "assets/a2/native_reference/result.json": {
+      "source": "/home/lekangwan/projects/NavRL/results/a2_native_reference_20261116/result.json",
+      "sha256": "eed8ca92763e6d7bc122f8b4f9fafd300fea094a69f058bbdc6492f28dff9103",
+      "size_bytes": 5417
+    }
+  }
+}

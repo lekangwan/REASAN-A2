@@ -1,0 +1,13 @@
+{
+  "source_commit": "655bf4f1cc23e835d87bf9a887972af6760af162",
+  "source_file": "upstream/REASAN/training/go2_lidar/go2_lidar/tasks/go2_nav_env.py",
+  "source_sha256": "c35c83029a9cc6ff490968c911c2426f7df9fb712621ce66801d1f5f906c2fd1",
+  "adapted_methods": [
+    "__init__",
+    "_randomize_mass",
+    "_pre_physics_step",
+    "_apply_action",
+    "_reset_idx"
+  ],
+  "inherited_methods": "all other Go2NavEnv methods unchanged"
+}

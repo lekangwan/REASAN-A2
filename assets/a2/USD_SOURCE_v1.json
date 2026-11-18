@@ -1,0 +1,27 @@
+{
+  "source_run": "results/a2_lab_asset_v1_20261116_attempt02",
+  "validated_by": "results/a2_lab_asset_v1_20261116_attempt03",
+  "source_commit": "d3d8929ae615504eb9edf454714505c3c01dbcba",
+  "files": {
+    "a2.usd": "1ad5306083129a6604be362d13c590756304490de93d4c5616fd118d72c9e5a7",
+    ".asset_hash": "641927964711426f117abb8a330feae436bf2c302f84ce66fb75bfe1e4b5cbec",
+    "a2_import.urdf": "22e9462f26b0378806b6fd766fbc958ee359fabb2af584feb4ed395ddf35d8c3",
+    "a2_import.json": "262e7fe104ea52930721e3424d5613b78d24c182ac05c9ce26f9a85e6e3d2c14",
+    "config.yaml": "49da1ae1f686910974ecf96d9db45c32de03716b9e0f63c87892f8937ffaa0fc",
+    "configuration/a2_physics.usd": "ba407e2ee3d17527f3e522f7a7bc5b5de2b5e7a71e4a5061641d544e52522e47",
+    "configuration/a2_sensor.usd": "6370f31f10593536c3d4c01a7720004e30263f411df20da0b783f958dc535a9f",
+    "configuration/a2_base.usd": "25c254340b897e6ceed1b6d25c1c6197f031e2ecea8132cead7f4bfd4e105d0f"
+  },
+  "mass_kg": 40.071,
+  "physical_joints": 12,
+  "physical_bodies": 17,
+  "import_correction": "remove three empty sensor frames only; preserve physical links and active joints",
+  "native_collision_settings": {
+    "replace_cylinders_with_capsules": true,
+    "actual_collision_capsules": 4,
+    "contact_offset": 0.01,
+    "rest_offset": 0.0
+  },
+  "collision_instances": "explicitly expanded in derived USD; visual instances retained",
+  "previous_asset": "assets/a2/usd/a2.usd"
+}

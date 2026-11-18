@@ -1,0 +1,8 @@
+{
+  "copied_date": "2026-11-17",
+  "scope": "A2 assets and frozen MoE student only; no navigation replacement yet",
+  "a2_repository": "https://github.com/kilsnakes-star/a2_rl_gym",
+  "a2_source_commit": "d3d8929ae615504eb9edf454714505c3c01dbcba",
+  "navrl_snapshot_commit": "263a0c1f1969afd043f77dbf257cbdae599a50df",
+  "checkpoint_training_configuration": "not contained in checkpoint; existing pinned source is a candidate, with native and Lab walking checks available"
+}

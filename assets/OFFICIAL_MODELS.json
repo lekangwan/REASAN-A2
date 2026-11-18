@@ -1,0 +1,46 @@
+{
+  "repository": "https://github.com/ASIG-X/REASAN",
+  "commit": "655bf4f1cc23e835d87bf9a887972af6760af162",
+  "files": {
+    "training/logs/rsl_rl/go2_lidar/filter_1/model_19998.pt": {
+      "bytes": 24886739,
+      "sha256": "3de7fe09852ab07a27e6a105de68dde6c71a69c78c7d6d058aa231ba03a2ab8e"
+    },
+    "training/logs/rsl_rl/go2_lidar/filter_1/exported/policy.pt": {
+      "bytes": 3174934,
+      "sha256": "c54f2c8b1b534fe1958d070edbf8a4981f4f739ed13a5067bb01f3673a1b4b5e"
+    },
+    "training/logs/rsl_rl/go2_lidar/filter_1/exported/policy.onnx": {
+      "bytes": 3141848,
+      "sha256": "8af279068cd8f99d1990eb21bbb3fd0e989e91cf79be0b815554ac6009b18afd"
+    },
+    "training/logs/rsl_rl/go2_lidar/loco_1/model_9998.pt": {
+      "bytes": 15123573,
+      "sha256": "83040865871cf14d08dc995c1b1c52b908f3d39fcd513f62b34c079709f69dd3"
+    },
+    "training/logs/rsl_rl/go2_lidar/loco_1/exported/policy.pt": {
+      "bytes": 2454658,
+      "sha256": "34d961bbbf1c7fe7c0aa96bd59244922ed42790d1f71127aa52cb18547af2aea"
+    },
+    "training/logs/rsl_rl/go2_lidar/loco_1/exported/policy.onnx": {
+      "bytes": 2432374,
+      "sha256": "94eec0301c3173b7d84b9522d9e9b1eb8215243676533e7921fa42826bb620cb"
+    },
+    "training/logs/rsl_rl/go2_lidar/nav_1/model_9999.pt": {
+      "bytes": 24849679,
+      "sha256": "23264f6c825213b70b622b4cb0d1bc43bd74ef5685f970975c0bd114fe0b93e3"
+    },
+    "training/logs/rsl_rl/go2_lidar/nav_1/exported/policy.pt": {
+      "bytes": 3170838,
+      "sha256": "efffb8b86ac6112e6c35093a4f97a6f71043dad23b4df83400d7102442133dc3"
+    },
+    "training/logs/rsl_rl/go2_lidar/nav_1/exported/policy.onnx": {
+      "bytes": 3137752,
+      "sha256": "2f275eee3c2bcdb9e3f7f853f3d8374fcac55e1bf7405b5342c810f5b5c0bec8"
+    },
+    "deployment/reasan/model/ray_predictor_1.onnx": {
+      "bytes": 8619272,
+      "sha256": "dbf55fd0aeea6ea8c1d4690ed54c7643183509888cb1a2dff7c5a755e3ca674e"
+    }
+  }
+}

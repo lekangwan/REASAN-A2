@@ -1,0 +1,29 @@
+{
+  "repository": "lekangwan/REASAN-A2",
+  "tag": "v0.1.0",
+  "artifacts": [
+    {
+      "kind": "assets",
+      "name": "reasan-a2-assets-v0.1.0.tar.gz",
+      "bytes": 40047958,
+      "sha256": "b2cca735247c00b6a47c2f79bcacdd7d17ca8b07eb6e4a516c5527fc6ed8868f",
+      "files": 23
+    },
+    {
+      "kind": "results",
+      "name": "reasan-a2-results-v0.1.0.tar.gz",
+      "bytes": 123446128,
+      "sha256": "e062a9bd5a31b6d28b9a5da06b810bed87e2aa84a3545aaf0bfeb94d0c583849",
+      "files": 244
+    },
+    {
+      "kind": "videos",
+      "name": "reasan-a2-videos-v0.1.0.tar.gz",
+      "bytes": 96076426,
+      "sha256": "4041a422d95a01eac2b25912e8bb77ca0112b6a867a757c4fc4b57046dda1493",
+      "files": 7
+    }
+  ],
+  "nvidia_assets": "downloaded separately from official NVIDIA source with assets/isaac45/SOURCE.json",
+  "source_commit": "655bf4f1cc23e835d87bf9a887972af6760af162"
+}

@@ -1,0 +1,211 @@
+{
+  "source_commit": "d3d8929ae615504eb9edf454714505c3c01dbcba",
+  "native_reference": "results/a2_native_reference_20261116",
+  "joint_names": [
+    "FL_hip_joint",
+    "FL_thigh_joint",
+    "FL_calf_joint",
+    "FR_hip_joint",
+    "FR_thigh_joint",
+    "FR_calf_joint",
+    "RL_hip_joint",
+    "RL_thigh_joint",
+    "RL_calf_joint",
+    "RR_hip_joint",
+    "RR_thigh_joint",
+    "RR_calf_joint"
+  ],
+  "foot_names": [
+    "FL_foot",
+    "FR_foot",
+    "RL_foot",
+    "RR_foot"
+  ],
+  "default_joint_angles": {
+    "FL_hip_joint": -0.1,
+    "FL_thigh_joint": 0.9,
+    "FL_calf_joint": -1.8,
+    "FR_hip_joint": 0.1,
+    "FR_thigh_joint": 0.9,
+    "FR_calf_joint": -1.8,
+    "RL_hip_joint": -0.1,
+    "RL_thigh_joint": 0.9,
+    "RL_calf_joint": -1.8,
+    "RR_hip_joint": 0.1,
+    "RR_thigh_joint": 0.9,
+    "RR_calf_joint": -1.8
+  },
+  "root_height": 0.4,
+  "control": {
+    "action_scale": 0.25,
+    "control_type": "P",
+    "damping": {
+      "hip_joint": 4.0,
+      "thigh_joint": 4.0,
+      "calf_joint": 6.0
+    },
+    "decimation": 4,
+    "stiffness": {
+      "hip_joint": 100.0,
+      "thigh_joint": 100.0,
+      "calf_joint": 150.0
+    }
+  },
+  "normalization": {
+    "clip_actions": 100.0,
+    "clip_observations": 100.0,
+    "obs_scales": {
+      "ang_vel": 0.25,
+      "dof_pos": 1.0,
+      "dof_vel": 0.05,
+      "height_measurements": 2.5,
+      "lin_vel": 2.0
+    }
+  },
+  "joint_limits": {
+    "FL_hip_joint": {
+      "lower": "-1.01",
+      "upper": "1.01",
+      "effort": "120.0",
+      "velocity": "22.0"
+    },
+    "FL_thigh_joint": {
+      "lower": "-2.34",
+      "upper": "3.15",
+      "effort": "120.0",
+      "velocity": "22.0"
+    },
+    "FL_calf_joint": {
+      "lower": "-2.77",
+      "upper": "-0.54",
+      "effort": "180.0",
+      "velocity": "14.6667"
+    },
+    "RL_hip_joint": {
+      "lower": "-1.01",
+      "upper": "1.01",
+      "effort": "120.0",
+      "velocity": "22.0"
+    },
+    "RL_thigh_joint": {
+      "lower": "-1.56",
+      "upper": "3.94",
+      "effort": "120.0",
+      "velocity": "22.0"
+    },
+    "RL_calf_joint": {
+      "lower": "-2.77",
+      "upper": "-0.54",
+      "effort": "180.0",
+      "velocity": "14.6667"
+    },
+    "FR_hip_joint": {
+      "lower": "-1.01",
+      "upper": "1.01",
+      "effort": "120.0",
+      "velocity": "22.0"
+    },
+    "FR_thigh_joint": {
+      "lower": "-2.34",
+      "upper": "3.15",
+      "effort": "120.0",
+      "velocity": "22.0"
+    },
+    "FR_calf_joint": {
+      "lower": "-2.77",
+      "upper": "-0.54",
+      "effort": "180.0",
+      "velocity": "14.6667"
+    },
+    "RR_hip_joint": {
+      "lower": "-1.01",
+      "upper": "1.01",
+      "effort": "120.0",
+      "velocity": "22.0"
+    },
+    "RR_thigh_joint": {
+      "lower": "-1.56",
+      "upper": "3.94",
+      "effort": "120.0",
+      "velocity": "22.0"
+    },
+    "RR_calf_joint": {
+      "lower": "-2.77",
+      "upper": "-0.54",
+      "effort": "180.0",
+      "velocity": "14.6667"
+    }
+  },
+  "total_urdf_mass_kg": 40.07099999999999,
+  "armature": 0.03,
+  "asset": {
+    "action_joint_names": [
+      "FL_hip_joint",
+      "FL_thigh_joint",
+      "FL_calf_joint",
+      "FR_hip_joint",
+      "FR_thigh_joint",
+      "FR_calf_joint",
+      "RL_hip_joint",
+      "RL_thigh_joint",
+      "RL_calf_joint",
+      "RR_hip_joint",
+      "RR_thigh_joint",
+      "RR_calf_joint"
+    ],
+    "angular_damping": 0.0,
+    "armature": 0.03,
+    "base_link_name": "base_link",
+    "collapse_fixed_joints": true,
+    "default_dof_drive_mode": 3,
+    "density": 0.001,
+    "disable_gravity": false,
+    "file": "{LEGGED_GYM_ROOT_DIR}/resources/robots/a2/urdf/a2.urdf",
+    "fix_base_link": false,
+    "flip_visual_attachments": false,
+    "foot_body_names": [
+      "FL_foot",
+      "FR_foot",
+      "RL_foot",
+      "RR_foot"
+    ],
+    "foot_name": "_foot",
+    "linear_damping": 0.0,
+    "max_angular_velocity": 1000.0,
+    "max_linear_velocity": 1000.0,
+    "name": "a2",
+    "penalize_contacts_on": [
+      "thigh",
+      "calf"
+    ],
+    "replace_cylinder_with_capsule": true,
+    "self_collisions": 0,
+    "terminate_after_contacts_on": [
+      "base_link"
+    ],
+    "thickness": 0.01
+  },
+  "physics": {
+    "dt": 0.005,
+    "gravity": [
+      0.0,
+      0.0,
+      -9.81
+    ],
+    "physx": {
+      "bounce_threshold_velocity": 0.5,
+      "contact_collection": 2,
+      "contact_offset": 0.01,
+      "default_buffer_size_multiplier": 5,
+      "max_depenetration_velocity": 1.0,
+      "max_gpu_contact_pairs": 8388608,
+      "num_position_iterations": 4,
+      "num_threads": 10,
+      "num_velocity_iterations": 0,
+      "rest_offset": 0.0,
+      "solver_type": 1
+    },
+    "substeps": 1,
+    "up_axis": 1
+  }
+}
