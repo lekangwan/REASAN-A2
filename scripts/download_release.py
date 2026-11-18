@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import urllib.error
 import urllib.request
 from github_auth import token,opener
 
@@ -16,12 +17,13 @@ def main():
     parser.add_argument('--out',type=Path,default=ROOT/'release-downloads')
     args=parser.parse_args()
     manifest=json.loads((ROOT/'docs/RELEASE_ARTIFACTS.json').read_text())
-    auth=token();http=opener()
+    auth=None;http=opener()
     base='https://api.github.com/repos/'+manifest['repository']
     def request(url,accept='application/vnd.github+json'):
-        return urllib.request.Request(url,headers={'Authorization':'Bearer '+auth,'Accept':accept,'User-Agent':'REASAN-A2'})
-    with http.open(request(base+'/releases/tags/'+manifest['tag']),timeout=60) as r:release=json.load(r)
-    available={a['name']:a for a in release['assets']}
+        headers={'Accept':accept,'User-Agent':'REASAN-A2'}
+        if auth:headers['Authorization']='Bearer '+auth
+        return urllib.request.Request(url,headers=headers)
+    available={}
     args.out.mkdir(parents=True,exist_ok=True)
     for artifact in manifest['artifacts']:
         if artifact['kind']=='results' and not args.with_results:continue
@@ -31,7 +33,18 @@ def main():
             print('已核对 '+path.name);continue
         partial=path.with_name(path.name+'.part');h=hashlib.sha256()
         try:
-            with http.open(request(available[path.name]['url'],'application/octet-stream'),timeout=120) as response,partial.open('wb') as output:
+            # 公开附件直接下载，避免匿名 GitHub API 的共享限额。
+            url=(available[path.name]['url'] if auth else
+                 'https://github.com/'+manifest['repository']+'/releases/download/'+manifest['tag']+'/'+path.name)
+            try:
+                response=http.open(request(url,'application/octet-stream'),timeout=120)
+            except urllib.error.HTTPError as error:
+                if auth or error.code not in (401,403,404):raise
+                auth=token()
+                with http.open(request(base+'/releases/tags/'+manifest['tag']),timeout=60) as r:release=json.load(r)
+                available={a['name']:a for a in release['assets']}
+                response=http.open(request(available[path.name]['url'],'application/octet-stream'),timeout=120)
+            with response,partial.open('wb') as output:
                 while True:
                     block=response.read(1024*1024)
                     if not block:break

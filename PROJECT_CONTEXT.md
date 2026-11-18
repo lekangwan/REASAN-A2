@@ -2,7 +2,7 @@
 
 更新日期：2026-11-18（Asia/Shanghai）。当前阶段：A2 出生修正 v1 的 240 回合完整评估已由用户运行完成。稀疏、密集各到达 80/80，迷宫到达 47/80，另有八次碰撞、25 次超时；总计 207/240（86.25%），用时约 30.5 分钟。已完成三类地形各一条成功、迷宫超时和碰撞各一条，共五段视频，见 [录像与核查报告](results/debug/20261118_122749_a2_static_videos/REPORT.md)。原 Go2 220/240 和旧 A2 92/240 数据保留；旧 A2 成绩包含出生穿地问题。新正式结果见 [本轮结果](results/evaluation/20261118_110315_reasan_a2_valid_spawn_v1/summary.json)，初始化规则见 [修正与验证报告](results/debug/20261118_101030_a2_spawn_fix/REPORT.md)。
 
-交接版本：用户已指定私有仓库 [lekangwan/REASAN-A2](https://github.com/lekangwan/REASAN-A2)，按 v0.1.0 整理代码、来源和三个版本附件。新 Docker 镜像在干净副本中通过模型、六条 A2 路线和官方 Go2 短检查；A2 轨迹及控制与参考运行逐字节相同。使用说明见 [交接文档](docs/HANDOFF.md)，检查摘要见 [HANDOFF_VALIDATION.json](docs/HANDOFF_VALIDATION.json)。本机维护用的正常 Git 副本位于原项目的 `release/github/`，原实验目录与历史数据保留。
+交接版本：用户已将交接仓库改为公开仓库 [lekangwan/REASAN-A2](https://github.com/lekangwan/REASAN-A2)，按 v0.1.0 整理代码、来源和三个版本附件。新 Docker 镜像在干净副本中通过模型、六条 A2 路线和官方 Go2 短检查；A2 轨迹及控制与参考运行逐字节相同。使用说明见 [交接文档](docs/HANDOFF.md)，检查摘要见 [HANDOFF_VALIDATION.json](docs/HANDOFF_VALIDATION.json)。本机维护用的正常 Git 副本位于原项目的 `release/github/`，原实验目录与历史数据保留。
 
 ## 目标与工作约定
 

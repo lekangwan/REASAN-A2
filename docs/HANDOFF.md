@@ -4,7 +4,7 @@
 
 ## 1. 获取完整代码
 
-仓库为私有，需要仓库所有者授予访问权限。使用 `git clone --recurse-submodules`，不要只下载 GitHub 的源码 ZIP，因为它不包含子模块内容。已经普通 clone 的可补运行：
+仓库与版本附件均公开，无需登录或邀请。使用 `git clone --recurse-submodules`，不要只下载 GitHub 的源码 ZIP，因为它不包含子模块内容。已经普通 clone 的可补运行：
 
 ```bash
 git submodule update --init --recursive
@@ -21,7 +21,7 @@ python3 scripts/restore_release.py
 python3 scripts/fetch_isaac_assets.py
 ```
 
-默认只恢复运行所需的 A2 资产、原始及导出权重、原生参考和冻结地图。官方 Go2 与导航、安全权重来自上游子模块。下载脚本复用现有 GitHub 认证，不写令牌；若使用 SSH clone 且没有 HTTPS 认证，可用 `gh auth login`，或从 Release 页面手动下载资产附件到 `release-downloads/`。手动下载同样执行 `restore_release.py`，会核对固定摘要。
+默认只恢复运行所需的 A2 资产、原始及导出权重、原生参考和冻结地图。官方 Go2 与导航、安全权重来自上游子模块。下载脚本默认匿名下载，无需配置 GitHub 认证；也可从 Release 页面手动下载资产附件到 `release-downloads/`。手动下载同样执行 `restore_release.py`，会核对固定摘要。
 
 七个 NVIDIA 资产从官方地址获取。若网络受限，可从已有环境拷贝 `assets/isaac45/`，再用 `python3 scripts/fetch_isaac_assets.py --verify-only` 核对。
 

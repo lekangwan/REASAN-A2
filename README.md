@@ -33,7 +33,7 @@ docker build -t reasan-a2:sim45-v1 runtime
 python3 scripts/check_handoff.py
 ```
 
-私有仓库需要访问权限。附件下载复用 `gh auth login`、已有 Git HTTPS 凭据或 `GH_TOKEN`；也可从 Release 页面手动下载到 `release-downloads/` 后直接运行恢复命令。下载脚本不保存令牌。
+仓库与版本附件均公开，无需 GitHub 账号即可获取。下载脚本默认匿名下载并核对摘要；也可从 Release 页面手动下载到 `release-downloads/` 后运行恢复命令。
 
 先做短检查，再运行完整评估。完整交接步骤、常见问题和结果恢复方法见 [HANDOFF.md](docs/HANDOFF.md)。
 
