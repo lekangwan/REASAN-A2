@@ -1,10 +1,24 @@
-# REASAN-A2：官方 Go2 复现与 A2 MoE 直接迁移
+# REASAN-A2：官方 Go2 复现与 A2 导航适配
 
-本仓库用于交接已跑通的 REASAN 仿真流程：保留官方导航和安全权重，分别运行官方 Go2 步态，以及 A2 `model_103500.pt` 对应的 MoE 学生策略。当前使用仿真射线，未开展新的训练。
+本仓库交接 REASAN 仿真复现、A2 MoE 零样本迁移和 A2 导航微调权重。评测采用仿真射线。
 
-**A2 成绩属于零样本跨机器人迁移。** Go2 上训练的导航、安全层没有在 A2 上重新训练；不能将当前成绩当作 REASAN 在 A2 充分训练后的性能。若比较在 A2 上训练的新方法，应另行建立训练适配程度可比较的主对照。
+## A2 迷宫评测权重
 
-## 已完成的结果
+**使用微调第 500 次的 `nav_a2_finetune_iter500.pt`。** 在固定 80 条 A2 静态迷宫中，该权重到达 53 条（66.25%）、碰撞 6 次、超时 21 次。相同条件下，原 Go2 导航直迁 A2 到达 47 条。微调和评测使用原安全层及 A2 `model_103500.pt` 的 MoE 学生策略。
+
+[直接下载 TorchScript 权重](https://github.com/lekangwan/REASAN-A2/releases/download/v0.2.0/nav_a2_finetune_iter500.pt) · [完整模型包及逐条结果](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.0) · [自有场景接入说明](docs/A2_NAV500_HANDOFF.md)
+
+已有本仓库运行环境时，先运行 `git pull --ff-only`。从 v0.2.0 下载并解压完整模型包到 `release-downloads/nav500/`，可用下列命令在原公开预留场景短测新权重。
+
+```bash
+(cd release-downloads/nav500 && sha256sum -c SHA256SUMS)
+bash scripts/run_in_sim.sh /workspace/scripts/evaluate_a2_trained_navigation.py \
+  --split validation --family maze --num-envs 2 --repeats 1 \
+  --out /workspace/results/tmp/nav500_maze_validation \
+  --policy /workspace/release-downloads/nav500/models/nav_a2_finetune_iter500.pt
+```
+
+## 官方权重的静态复现与零样本结果
 
 每类八个正式布局，每布局十组固定初态，每类 80 回合。使用同一组静态稀疏、密集和迷宫地图；验证布局另留，不参与此表统计。
 
@@ -63,7 +77,7 @@ bash scripts/run_a2_valid_spawn_evaluation.sh 10
 | `runtime/` | 固定 Isaac Sim 4.5 基镜像与附加依赖 |
 | `results/` | 从附件恢复的原始结果，以及本机新运行输出，不进入 Git 历史 |
 
-官方 Go2、本地运行适配和 A2 迁移分别保留。`scripts/original/run_in_sim.local.sh` 保存迁移前的本机启动入口；可移植入口支持 `REASAN_RUNTIME_IMAGE` 显式选择镜像。原始训练入口随官方子模块保留，本项目尚未验证 A2 安全或导航训练。
+官方 Go2、本地运行适配和 A2 迁移分别保留。`scripts/original/run_in_sim.local.sh` 保存迁移前的本机启动入口。可移植入口支持 `REASAN_RUNTIME_IMAGE` 显式选择镜像。原始训练入口随官方子模块提供。
 
 项目当前状态见 [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)，关键实验见 [WORK_LOG.md](WORK_LOG.md)，协议见 [EVALUATION_PLAN.md](EVALUATION_PLAN.md)，底层接入细节见 [A2_MIGRATION_PLAN.md](A2_MIGRATION_PLAN.md)。[第三方来源说明](THIRD_PARTY_NOTICES.md)保留原作者与许可证信息。
 
