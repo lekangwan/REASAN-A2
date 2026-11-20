@@ -19,12 +19,23 @@ mkdir -p "$project_root/.cache/kit" "$project_root/.cache/ov" \
 lab_source=/workspace/upstream/REASAN/training/IsaacLab/source
 source_paths="$lab_source/isaaclab:$lab_source/isaaclab_assets:$lab_source/isaaclab_tasks:$lab_source/isaaclab_rl:$lab_source/isaaclab_mimic"
 source_paths="$source_paths:/workspace/upstream/REASAN/training/go2_lidar:/workspace/upstream/REASAN/training/rsl_rl:/workspace/upstream/REASAN/training/ray_predictor:/workspace"
+filter_mount=()
+if [[ -n "${REASAN_A2_FILTER_POLICY:-}" ]]; then
+  if [[ ! -f "$REASAN_A2_FILTER_POLICY" ]]; then
+    echo '找不到 REASAN_A2_FILTER_POLICY 指定的安全层权重' >&2
+    exit 2
+  fi
+  filter_path="$(realpath -- "$REASAN_A2_FILTER_POLICY")"
+  echo "本次容器使用安全层权重 $filter_path"
+  filter_mount=(-v "$filter_path:/workspace/upstream/REASAN/training/logs/rsl_rl/go2_lidar/filter_1/exported/policy.pt:ro")
+fi
 exec docker run --rm --gpus all --network none --shm-size=1g --cpus=4 \
   -e ACCEPT_EULA=Y -e PRIVACY_CONSENT=Y -e OMNI_KIT_ALLOW_ROOT=1 \
   -e OMP_NUM_THREADS=4 -e MKL_NUM_THREADS=4 -e PYTHONUNBUFFERED=1 \
   -e PYTHONDONTWRITEBYTECODE=1 -e PYTHONPATH="$source_paths" \
   -v "$project_root:/workspace" \
   -v "$project_root/upstream/REASAN:/workspace/upstream/REASAN:ro" \
+  "${filter_mount[@]}" \
   -v "$project_root/assets/isaac45:/asset-cache:ro" \
   -v "$project_root/.cache/kit:/isaac-sim/kit/cache" \
   -v "$project_root/.cache/ov:/root/.cache/ov" \

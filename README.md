@@ -18,6 +18,8 @@ bash scripts/run_in_sim.sh /workspace/scripts/evaluate_a2_trained_navigation.py 
   --policy /workspace/release-downloads/nav500/models/nav_a2_finetune_iter500.pt
 ```
 
+如需比较安全层，可用 v0.2.1 的 A2 原奖励续训候选。它在直墙制动诊断中碰撞终止从 4/8 降至 0/8，空地平均平移速度误差为 0.233 m/s，官方层为 0.099 m/s。 [候选与配对命令](docs/A2_FILTER_CANDIDATE.md) · [候选下载](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.1)
+
 ## 官方权重的静态复现与零样本结果
 
 每类八个正式布局，每布局十组固定初态，每类 80 回合。使用同一组静态稀疏、密集和迷宫地图；验证布局另留，不参与此表统计。
