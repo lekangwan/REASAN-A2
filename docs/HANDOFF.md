@@ -1,5 +1,7 @@
 # 给接手同学的使用说明
 
+当前静态迷宫评测的最佳组合是第 500 次微调导航加原奖励续训安全层，80 条中到达 60 条。已有运行环境时可按 README 加载 v0.2.2 的两份权重。 [最佳组合下载](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.2)
+
 先读根目录 README 的实验含义与安装步骤。v0.1.0 提供官方 Go2 权重复现和 A2 MoE 的零样本迁移资源。v0.2.0 附加微调第 500 次的 A2 导航权重、接口检查和 80 条迷宫结果。已装好 v0.1.0 环境的同学可以直接取新导航文件。 [第 500 次权重下载与接入](A2_NAV500_HANDOFF.md) · [v0.2.0 附件](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.0)
 
 ## 1. 获取完整代码

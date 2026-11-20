@@ -1,5 +1,7 @@
 # REASAN-A2 导航权重交接
 
+第 500 次导航搭配原奖励续训安全层的正式成绩为 **60/80（75.00%）**，是当前四组静态迷宫对照中的最佳组合。v0.2.2 随附这两份 TorchScript 和校验清单。下文的完整 ZIP 对应 v0.2.0，记录的是第 500 次导航搭配官方安全层的 **53/80** 对照。 [最佳组合下载](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.2) · [续训安全层接入](A2_FILTER_CANDIDATE.md)
+
 给接手同学在自己的 A2 仿真场景里评估。主文件是 **`models/nav_a2_finetune_iter500.pt`**，它是从官方 Go2 导航权重开始、在 A2 上微调 500 次 PPO 后导出的 TorchScript 导航 actor。
 
 ## 开始使用

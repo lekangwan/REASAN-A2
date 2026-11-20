@@ -2,23 +2,29 @@
 
 本仓库交接 REASAN 仿真复现、A2 MoE 零样本迁移和 A2 导航微调权重。评测采用仿真射线。
 
-## A2 迷宫评测权重
+## A2 静态迷宫最佳组合
 
-**使用微调第 500 次的 `nav_a2_finetune_iter500.pt`。** 在固定 80 条 A2 静态迷宫中，该权重到达 53 条（66.25%）、碰撞 6 次、超时 21 次。相同条件下，原 Go2 导航直迁 A2 到达 47 条。微调和评测使用原安全层及 A2 `model_103500.pt` 的 MoE 学生策略。
+**微调第 500 次导航 + 从第 600 次按原奖励续训 150 次的安全层，到达 60/80（75.00%）。** 四组使用同一批 80 条静态迷宫、相同批次顺序和实际初态，固定 A2 `model_103500.pt` 对应的 MoE 学生策略与仿真射线，按到达率比较。
 
-[直接下载 TorchScript 权重](https://github.com/lekangwan/REASAN-A2/releases/download/v0.2.0/nav_a2_finetune_iter500.pt) · [完整模型包及逐条结果](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.0) · [自有场景接入说明](docs/A2_NAV500_HANDOFF.md)
+| 导航 | 官方安全层 | 原奖励续训安全层 |
+| --- | ---: | ---: |
+| 原导航 | 48/80（60.00%） | 45/80（56.25%） |
+| 微调第 500 次 | 53/80（66.25%） | **60/80（75.00%）** |
 
-已有本仓库运行环境时，先运行 `git pull --ff-only`。从 v0.2.0 下载并解压完整模型包到 `release-downloads/nav500/`，可用下列命令在原公开预留场景短测新权重。
+[v0.2.2 最佳组合](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.2) · [下载导航权重](https://github.com/lekangwan/REASAN-A2/releases/download/v0.2.2/nav_a2_finetune_iter500.pt) · [下载安全层权重](https://github.com/lekangwan/REASAN-A2/releases/download/v0.2.2/filter_a2_original_reward_600plus150.pt)
+
+已有本仓库运行环境时，先运行 `git pull --ff-only`。把 v0.2.2 的两份 TorchScript 和 `SHA256SUMS` 放在 `release-downloads/best-maze/`，可用下列命令在公开预留迷宫短测。
 
 ```bash
-(cd release-downloads/nav500 && sha256sum -c SHA256SUMS)
-bash scripts/run_in_sim.sh /workspace/scripts/evaluate_a2_trained_navigation.py \
+(cd release-downloads/best-maze && sha256sum -c SHA256SUMS)
+REASAN_A2_FILTER_POLICY=release-downloads/best-maze/filter_a2_original_reward_600plus150.pt \
+  bash scripts/run_in_sim.sh /workspace/scripts/evaluate_a2_trained_navigation.py \
   --split validation --family maze --num-envs 2 --repeats 1 \
-  --out /workspace/results/tmp/nav500_maze_validation \
-  --policy /workspace/release-downloads/nav500/models/nav_a2_finetune_iter500.pt
+  --out /workspace/results/tmp/best_maze_validation \
+  --policy /workspace/release-downloads/best-maze/nav_a2_finetune_iter500.pt
 ```
 
-如需比较安全层，可用 v0.2.1 的 A2 原奖励续训候选。它在直墙制动诊断中碰撞终止从 4/8 降至 0/8，空地平均平移速度误差为 0.233 m/s，官方层为 0.099 m/s。 [候选与配对命令](docs/A2_FILTER_CANDIDATE.md) · [候选下载](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.1)
+用相同导航与官方安全层做对照时，省略 `REASAN_A2_FILTER_POLICY` 并另选输出目录。 [自有场景的接口说明](docs/A2_NAV500_HANDOFF.md) · [安全层配对与专项结果](docs/A2_FILTER_CANDIDATE.md)
 
 ## 官方权重的静态复现与零样本结果
 

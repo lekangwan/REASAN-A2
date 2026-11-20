@@ -1,6 +1,8 @@
-# A2 安全层候选：原奖励续训 150 次
+# A2 安全层原奖励续训 150 次
 
-这是从 A2 安全层微调第 600 次的保存点恢复网络和 Adam、用原奖励继续训练 150 次导出的 TorchScript。文件为 `filter_a2_original_reward_600plus150.pt`。在自有仿真场景做配对时，两组使用相同的第 500 次导航权重、A2 MoE、射线、地图、起终点和初态，分别加载官方安全层或本候选。53/80 的正式迷宫成绩对应官方安全层。 [候选文件](https://github.com/lekangwan/REASAN-A2/releases/tag/v0.2.1) · [导航权重与输入说明](A2_NAV500_HANDOFF.md)
+这是从 A2 安全层微调第 600 次的保存点恢复网络和 Adam、用原奖励继续训练 150 次导出的 TorchScript。文件为 `filter_a2_original_reward_600plus150.pt`。和第 500 次微调导航搭配，在 80 条静态迷宫中到达 60/80（75.00%），为四组中的最佳组合。同一导航使用官方安全层时到达 53/80。原导航换上续训安全层的到达数从 48/80 变为 45/80。 [下载安全层](https://github.com/lekangwan/REASAN-A2/releases/download/v0.2.2/filter_a2_original_reward_600plus150.pt) · [导航权重与输入说明](A2_NAV500_HANDOFF.md)
+
+在自有仿真场景做配对时，两组使用相同的第 500 次导航权重、A2 MoE、射线、地图、起终点和初态，分别加载官方安全层或续训安全层。
 
 | 专项检查 | 官方安全层 | 原奖励续训候选 |
 | --- | ---: | ---: |
@@ -14,16 +16,16 @@
 
 ## 使用
 
-更新仓库后，从 v0.2.1 下载候选权重和 `SHA256SUMS`，放到 `release-downloads/filter150/`。已有的第 500 次导航模型可按根目录 README 放在 `release-downloads/nav500/`。
+更新仓库后，把 v0.2.2 的两份权重和 `SHA256SUMS` 放到 `release-downloads/best-maze/`。
 
 ```bash
 git pull --ff-only
-(cd release-downloads/filter150 && sha256sum -c SHA256SUMS)
-REASAN_A2_FILTER_POLICY=release-downloads/filter150/filter_a2_original_reward_600plus150.pt \
+(cd release-downloads/best-maze && sha256sum -c SHA256SUMS)
+REASAN_A2_FILTER_POLICY=release-downloads/best-maze/filter_a2_original_reward_600plus150.pt \
   bash scripts/run_in_sim.sh /workspace/scripts/evaluate_a2_trained_navigation.py \
   --split validation --num-envs 2 --repeats 1 \
   --out /workspace/results/tmp/nav500_filter150_validation \
-  --policy /workspace/release-downloads/nav500/models/nav_a2_finetune_iter500.pt
+  --policy /workspace/release-downloads/best-maze/nav_a2_finetune_iter500.pt
 ```
 
 该变量为本次仿真容器选用候选文件。用同一命令进行官方层对照时，省略该变量并另选输出目录。可用 `summary.json` 的 `models.filter` 核对实际加载的文件，候选 SHA-256 为 `60c47d3b19289cbc0519e404909999fa534917dbcee49f1c7363507fca2b941a`。
